@@ -1,0 +1,28 @@
+\documentclass[]{article}
+\usepackage[utf8]{inputenc}
+
+%opening
+\title{Minimal svg2pdf\_tex usage example}
+\author{Jorge Pérez Zerpa}
+
+\usepackage[usenames]{color}
+\usepackage{graphicx}
+\graphicspath{{test/}}
+
+\begin{document}
+
+\maketitle
+
+Inclusion of figure in the root directory.
+\begin{center}
+	\def\svgwidth{0.6\textwidth}
+	\input{drawingA.pdf_tex}
+\end{center}
+
+Inclusion of figure in test directory.
+\begin{center}
+  \def\svgwidth{0.6\textwidth}
+  \input{test/drawingB.pdf_tex}
+\end{center}
+
+\end{document}

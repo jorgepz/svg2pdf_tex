@@ -1,0 +1,13 @@
+*.aux
+*.pdf
+*.pdf_tex
+*.log
+*.out
+*.bbl
+*.blg
+*.gz
+*.toc
+*.spl
+*.xwm
+*.cls
+
