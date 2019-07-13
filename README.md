@@ -9,5 +9,5 @@ An automatic conversor for svg files to pdftex. This bash script parses all svg 
 place the svg2pdf_tex.sh file in the directory of you .tex document. Provide execution permission as running "chmod +x svg2pdf_tex.sh", then run the script with the command "./svg2pdf_tex.sh".
 
 # minimal tex document example
-
+compile the file example.tex using pdflatex after the pdf and pdf_tex drawings are generated.
 
