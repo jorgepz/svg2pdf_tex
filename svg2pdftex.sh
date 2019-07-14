@@ -19,6 +19,11 @@
 # along with svg2pdf_tex.  If not, see <https://www.gnu.org/licenses/>.
 # ----------------------
 
+echo "--- svg2pdf_tex ---"
+
+existing=0
+new=0
+
 for f in $(find . -type f -name "*.svg"); do
   
   file="$(basename -s .svg -- $f)"
@@ -26,9 +31,15 @@ for f in $(find . -type f -name "*.svg"); do
   pdffile="$dir/$file.pdf"
     
   if test -f "$pdffile"; then
-    echo "$pdffile exist"
+    #~ echo "$pdffile already exists"
+    let existing++
   else
     inkscape -D "$f" --export-latex --export-pdf="$pdffile"  
-    echo "$pdffile generated"
+    echo "  $pdffile generated"
+    let new++
   fi
 done
+
+echo "Summary:"
+echo "$new generated."
+echo "$existing already."
