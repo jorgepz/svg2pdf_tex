@@ -1,7 +1,7 @@
 # -------------------
 # svg2pdftex: a bash script for automatic conversion from svg2pdftex using inkscape.
 #
-# Copyright (C) 2019, Jorge M. Pérez Zerpa
+# Copyright (C) 2020, Jorge M. Pérez Zerpa
 #
 # This file is part of svg2pdftex.
 #
@@ -19,6 +19,7 @@
 # along with svg2pdf_tex.  If not, see <https://www.gnu.org/licenses/>.
 # ----------------------
 
+echo "-------------------"
 echo "--- svg2pdf_tex ---"
 
 existing=0
@@ -31,8 +32,10 @@ for f in $(find . -type f -name "*.svg"); do
   pdffile="$dir/$file.pdf"
     
   if test -f "$pdffile"; then
-    #~ echo "$pdffile already exists"
     let existing++
+    if [ "$1" -eq "1" ]; then
+      echo "$pdffile already exists, overwriting"
+    fi    
   else
     inkscape -D "$f" --export-latex --export-pdf="$pdffile"  
     echo "  $pdffile generated"
@@ -41,5 +44,11 @@ for f in $(find . -type f -name "*.svg"); do
 done
 
 echo "Summary:"
-echo "$new generated."
-echo "$existing already."
+echo "$new new pdfs generated."
+if [ "$1" -eq "1" ]; then
+  echo "$existing already existing overwritten."
+else
+  echo "$existing already existing untouched."
+fi
+echo "-------------------"
+
