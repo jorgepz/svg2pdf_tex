@@ -35,11 +35,11 @@ for f in $(find . -type f -name "*.svg"); do
     let existing++
     if [ "$1" -eq "1" ]; then
       echo "$pdffile already exists, overwriting"
-      inkscape -D "$f" --export-latex --export-pdf="$pdffile"  
+      inkscape -D "$f" --export-latex --export-filename="$pdffile"  
 
     fi    
   else
-    inkscape -D "$f" --export-latex --export-pdf="$pdffile"  
+    inkscape -D "$f" --export-latex --export-filename="$pdffile"  
     echo "  $pdffile generated"
     let new++
   fi
